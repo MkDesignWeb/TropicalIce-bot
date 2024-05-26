@@ -1,0 +1,67 @@
+{
+  "name": "bot-tropical-ice",
+  "type": "commonjs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./dist/server.js",
+  "scripts": {
+    "start": "tsc && electron-forge start",
+    "build": "tsc && electron-builder -p always",
+    "make": "electron-forge make"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@wppconnect-team/wppconnect": "^1.30.1",
+    "axios": "^1.6.8",
+    "electron-squirrel-startup": "^1.0.1",
+    "express": "^4.19.2",
+    "node-json-db": "^2.3.0",
+    "sharp": "^0.33.4",
+    "simple-json-db": "^2.0.0",
+    "socket.io": "^4.7.5",
+    "socket.io-client": "^4.7.5",
+    "typescript": "^5.4.3"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^7.4.0",
+    "@electron-forge/maker-deb": "^7.4.0",
+    "@electron-forge/maker-rpm": "^7.4.0",
+    "@electron-forge/maker-squirrel": "^7.4.0",
+    "@electron-forge/maker-zip": "^7.4.0",
+    "@electron-forge/plugin-auto-unpack-natives": "^7.4.0",
+    "@electron-forge/plugin-fuses": "^7.4.0",
+    "@electron/fuses": "^1.8.0",
+    "@types/electron": "^1.6.10",
+    "@types/express": "^4.17.21",
+    "electron": "^29.2.0",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "extraResources": [
+      {
+        "from": "./public/",
+        "to": "public",
+        "filter": [
+          "**/*"
+        ]
+      }
+    ],
+    "generateUpdatesFilesForAllChannels": true,
+    "files": [
+      "dist/**/*",
+      "package.json",
+      "public"
+    ],
+    "directories": {
+      "output": "build"
+    },
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "MkDesignWeb",
+        "repo": "Tropical-ice-painel"
+      }
+    ]
+  }
+}
